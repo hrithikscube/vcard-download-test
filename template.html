@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center;
+            justify-content: center; */
+            width: 365px;
+            max-width: 24rem;
+            /* height: 100vh; */
+            /* margin: 0 auto; */
+            box-sizing: border-box;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            height: 15rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .card img.background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .card .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .card .logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 2px solid white;
+        }
+
+        .card .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card .details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            z-index: 9;
+        }
+
+        .card .details .info {
+            display: inline-block;
+            background: white;
+            color: black;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 1rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.25rem;
+            width: fit-content;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://picsum.photos/id/10/600/600" alt="background" class="background" />
+            <div class="top">
+                <div id="qrcode"></div>
+                <div class="logo">
+                    <img src="https://picsum.photos/id/15/600/600" alt="logo">
+                </div>
+            </div>
+            <div class="details">
+                <div class="info">Placeholder Name</div>
+                <div class="info">Designation, Department</div>
+                <div class="info">Company Name</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var qrcode = new QRCode("qrcode",
+            {
+                text: "https://saas.scube.me",
+                width: 80,
+                height: 80,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            }
+        );
+
+        function makeCode() {
+            qrcode.makeCode('https://saas.scube.me');
+        }
+
+        makeCode();
+
+    </script>
+
+</body>
+
+</html>
