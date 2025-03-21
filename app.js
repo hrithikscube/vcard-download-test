@@ -5,14 +5,14 @@ const fs = require('fs');
 const app = express();
 
 app.get('/template/preview', (req, res) => {
-    res.sendFile(path.join(__dirname, 'template.html'));
+    res.sendFile(path.join(__dirname, 'gap-template.html'));
 });
 
 // Route to generate PNG from the template.html file, targeting .container class with custom size
 app.get('/template/download', async (req, res) => {
     try {
         // Path to the HTML file
-        const htmlPath = path.join(__dirname, 'template.html');
+        const htmlPath = path.join(__dirname, 'gap-template.html');
 
         // Launch Puppeteer
         const browser = await puppeteer.launch();

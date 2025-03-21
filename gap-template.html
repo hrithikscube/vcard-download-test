@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <div class="container w-[365px] h-[15rem] bg-[#121212] flex flex-col p-6 gap-3">
+
+        <div class="flex items-start justify-between w-full">
+
+            <h1 class="text-3xl text-[#D0A847] font-medium font-serif uppercase tracking-wide w-3/12">
+                Gap INC.</h1>
+
+            <div id="qrcode"></div>
+
+        </div>
+
+
+        <div class="flex flex-col">
+            <div class="text-lg text-[#D0A847] font-serif uppercase tracking-wide">
+                Hrithik C</div>
+            <div class="text-xs text-[#D0A847] font-sans">
+                Senior Software Engineer</div>
+        </div>
+
+        <div>
+            <div class="text-xs text-[#D0A847] font-sans">
+                Bangalore, India</div>
+            <div class="text-xs text-[#D0A847] font-sans">
+                9731816447</div>
+            <div class="text-xs text-[#D0A847] font-sans">
+                hrithik@scube.me</div>
+        </div>
+
+
+    </div>
+
+    <script>
+        var qrcode = new QRCode("qrcode",
+            {
+                text: "https://saas.scube.me",
+                width: 80,
+                height: 80,
+                colorDark: "#000000",
+                colorLight: "#D0A847",
+                correctLevel: QRCode.CorrectLevel.H
+            }
+        );
+
+        function makeCode() {
+            qrcode.makeCode('https://saas.scube.me');
+        }
+
+        makeCode();
+
+    </script>
+
+</body>
+
+</html>
