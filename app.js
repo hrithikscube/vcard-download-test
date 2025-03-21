@@ -5,14 +5,30 @@ const fs = require('fs');
 const app = express();
 
 app.get('/template/preview', (req, res) => {
-    res.sendFile(path.join(__dirname, 'gap-template.html'));
+    res.sendFile(path.join(__dirname, '/gap/template4.html'));
+});
+
+app.get('/gap/preview/1', (req, res) => {
+    res.sendFile(path.join(__dirname, '/gap/template1.html'));
+});
+
+app.get('/gap/preview/2', (req, res) => {
+    res.sendFile(path.join(__dirname, '/gap/template2.html'));
+});
+
+app.get('/gap/preview/3', (req, res) => {
+    res.sendFile(path.join(__dirname, '/gap/template3.html'));
+});
+
+app.get('/gap/preview/4', (req, res) => {
+    res.sendFile(path.join(__dirname, '/gap/template4.html'));
 });
 
 // Route to generate PNG from the template.html file, targeting .container class with custom size
 app.get('/template/download', async (req, res) => {
     try {
         // Path to the HTML file
-        const htmlPath = path.join(__dirname, 'gap-template.html');
+        const htmlPath = path.join(__dirname, '/gap/template4.html');
 
         // Launch Puppeteer
         const browser = await puppeteer.launch();
@@ -46,7 +62,7 @@ app.get('/template/download', async (req, res) => {
 
         // Set response headers to trigger the download
         res.setHeader('Content-Type', 'image/png');
-        res.setHeader('Content-Disposition', 'attachment; filename="container-screenshot.png"');
+        res.setHeader('Content-Disposition', 'attachment; filename="template.png"');
 
         // Send the PNG image as the response, triggering a download in the browser
         res.send(screenshotBuffer);
